@@ -1,4 +1,9 @@
-# MLTeX
+<div align="center">
+  <img src="apps/web/app/icon.svg" width="88" height="88" alt="MLTeX logo" />
+  <h1>MLTeX</h1>
+  <p>
+    Developed by <a href="https://mathlumen.com"><strong>MathLumen</strong></a>
+  </p>
 
 ![Next.js](https://img.shields.io/badge/Next.js_15-black?logo=next.js&logoColor=white)
 ![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_v4-38BDF8?logo=tailwindcss&logoColor=white)
@@ -6,9 +11,9 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript_5-3178C6?logo=typescript&logoColor=white)
 ![Turborepo](https://img.shields.io/badge/Turborepo-EF4444?logo=turborepo&logoColor=white)
 
-**MLTeX** is a fast, privacy-first, client-side LaTeX editor with live KaTeX preview. No servers, no sign-up — your math stays in your browser.
+</div>
 
-Part of the [MathLumen](https://mathlumen.com) project.
+**MLTeX** is a fast, privacy-first, client-side LaTeX editor with live KaTeX preview. No servers, no sign-up — your math stays in your browser.
 
 ---
 
