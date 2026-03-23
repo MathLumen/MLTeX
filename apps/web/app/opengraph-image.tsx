@@ -5,6 +5,8 @@ export const alt = "MLTeX — Fast LaTeX in your browser";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+const PILLS = ["KaTeX", "CodeMirror 6", "Next.js 15", "Client-only"];
+
 export default function Image() {
   return new ImageResponse(
     (
@@ -22,137 +24,141 @@ export default function Image() {
           overflow: "hidden",
         }}
       >
-        {/* Grid dot background */}
+        {/* Glow top-right */}
         <div
           style={{
             position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "radial-gradient(circle, #1e1e1e 1.5px, transparent 1.5px)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-
-        {/* Glow accent top-right */}
-        <div
-          style={{
-            position: "absolute",
-            top: -120,
-            right: -120,
-            width: 480,
-            height: 480,
+            top: -160,
+            right: -160,
+            width: 520,
+            height: 520,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(0,255,224,0.12) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(0,255,224,0.10) 0%, transparent 70%)",
+            display: "flex",
           }}
         />
 
-        {/* Math decoration */}
+        {/* Large decorative "ML" watermark */}
         <div
           style={{
             position: "absolute",
-            top: 48,
-            right: 72,
-            fontSize: 200,
-            color: "rgba(0,255,224,0.06)",
-            fontFamily: "Georgia, serif",
+            top: 20,
+            right: 60,
+            fontSize: 260,
+            fontWeight: 800,
+            color: "rgba(0,255,224,0.04)",
+            fontFamily: "monospace",
             lineHeight: 1,
-            userSelect: "none",
+            letterSpacing: "-0.05em",
+            display: "flex",
           }}
         >
-          ∫
+          ML
         </div>
 
         {/* MathLumen badge */}
+        <div style={{ display: "flex", marginBottom: 28 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "6px 16px",
+              borderRadius: 6,
+              border: "1px solid rgba(0,255,224,0.3)",
+              background: "rgba(0,255,224,0.07)",
+            }}
+          >
+            <span
+              style={{
+                fontSize: 14,
+                color: "#00FFE0",
+                fontFamily: "monospace",
+                letterSpacing: "0.1em",
+              }}
+            >
+              MathLumen
+            </span>
+          </div>
+        </div>
+
+        {/* Title: MLTeX */}
+        <div style={{ display: "flex", marginBottom: 20 }}>
+          <span
+            style={{
+              fontSize: 96,
+              fontWeight: 800,
+              color: "#F0F0F0",
+              fontFamily: "monospace",
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            ML
+          </span>
+          <span
+            style={{
+              fontSize: 96,
+              fontWeight: 800,
+              color: "#00FFE0",
+              fontFamily: "monospace",
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            TeX
+          </span>
+        </div>
+
+        {/* Tagline */}
+        <div style={{ display: "flex", flexDirection: "column", marginBottom: 48, gap: 4 }}>
+          <span style={{ fontSize: 26, color: "#777", fontFamily: "monospace" }}>
+            Fast, privacy-first LaTeX editor in your browser.
+          </span>
+          <span style={{ fontSize: 26, color: "#555", fontFamily: "monospace" }}>
+            No servers. No sign-up. Just math.
+          </span>
+        </div>
+
+        {/* Feature pills */}
+        <div style={{ display: "flex", gap: 10 }}>
+          {PILLS.map((label) => (
+            <div
+              key={label}
+              style={{
+                display: "flex",
+                padding: "8px 18px",
+                borderRadius: 6,
+                border: "1px solid #2a2a2a",
+                background: "#161616",
+                fontSize: 15,
+                color: "#666",
+                fontFamily: "monospace",
+              }}
+            >
+              {label}
+            </div>
+          ))}
+        </div>
+
+        {/* URL */}
         <div
           style={{
+            position: "absolute",
+            bottom: 44,
+            right: 72,
             display: "flex",
-            alignItems: "center",
-            gap: 8,
-            marginBottom: 32,
-            padding: "6px 14px",
-            borderRadius: 6,
-            border: "1px solid rgba(0,255,224,0.25)",
-            background: "rgba(0,255,224,0.06)",
           }}
         >
           <span
             style={{
-              fontSize: 13,
-              color: "#00FFE0",
+              fontSize: 17,
+              color: "rgba(0,255,224,0.35)",
               fontFamily: "monospace",
-              letterSpacing: "0.08em",
             }}
           >
-            MathLumen
+            mathlumen.com
           </span>
-        </div>
-
-        {/* Title */}
-        <div
-          style={{
-            fontSize: 80,
-            fontWeight: 700,
-            color: "#F0F0F0",
-            fontFamily: "monospace",
-            lineHeight: 1,
-            marginBottom: 24,
-            letterSpacing: "-0.02em",
-          }}
-        >
-          ML
-          <span style={{ color: "#00FFE0" }}>TeX</span>
-        </div>
-
-        {/* Tagline */}
-        <div
-          style={{
-            fontSize: 28,
-            color: "#888888",
-            fontFamily: "monospace",
-            marginBottom: 48,
-            lineHeight: 1.4,
-          }}
-        >
-          Fast, privacy-first LaTeX editor in your browser.
-          <br />
-          No servers. No sign-up. Just math.
-        </div>
-
-        {/* Feature pills */}
-        <div style={{ display: "flex", gap: 12 }}>
-          {["KaTeX", "CodeMirror 6", "Next.js 15", "Client-only"].map(
-            (label) => (
-              <div
-                key={label}
-                style={{
-                  padding: "8px 16px",
-                  borderRadius: 6,
-                  border: "1px solid #2a2a2a",
-                  background: "#161616",
-                  fontSize: 16,
-                  color: "#888",
-                  fontFamily: "monospace",
-                }}
-              >
-                {label}
-              </div>
-            )
-          )}
-        </div>
-
-        {/* URL watermark */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 40,
-            right: 72,
-            fontSize: 18,
-            color: "rgba(0,255,224,0.4)",
-            fontFamily: "monospace",
-          }}
-        >
-          mathlumen.com
         </div>
       </div>
     ),
