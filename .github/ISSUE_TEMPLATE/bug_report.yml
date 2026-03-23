@@ -1,0 +1,84 @@
+name: Bug Report
+description: Something is broken or behaving unexpectedly.
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Fill out as much as you can — it speeds up the fix.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: "The preview pane shows a blank screen when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps to trigger the bug.
+      placeholder: |
+        1. Open the editor
+        2. Type the following LaTeX...
+        3. Click Share
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: latex
+    attributes:
+      label: LaTeX that triggered the issue
+      description: Paste the LaTeX source here (if relevant).
+      render: latex
+
+  - type: input
+    id: expected
+    attributes:
+      label: Expected behaviour
+      placeholder: "The preview should render the matrix."
+    validations:
+      required: true
+
+  - type: input
+    id: actual
+    attributes:
+      label: Actual behaviour
+      placeholder: "A red error message is shown: 'Unknown environment'."
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser + version
+      placeholder: "Chrome 133, Firefox 135, Safari 18..."
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Windows 11, macOS 15, Ubuntu 24.04..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - Dark
+        - Light
+        - Both
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Screenshots, console errors, or anything else that might help.
