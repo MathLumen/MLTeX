@@ -1,0 +1,189 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@theme {
+  --color-accent: #00FFE0;
+  --color-accent-dim: #00ccb4;
+  --color-bg: #0D0D0D;
+  --color-bg-secondary: #161616;
+  --color-bg-tertiary: #1f1f1f;
+  --color-border: #2a2a2a;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #888888;
+  --color-error: #ff4d4d;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", monospace;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #0D0D0D;
+    color: #f0f0f0;
+    font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+  }
+
+  /* Light mode overrides */
+  html.light body {
+    background-color: #FAFAF8;
+    color: #1a1a1a;
+  }
+
+  :root {
+    --bg: #0D0D0D;
+    --bg-secondary: #161616;
+    --bg-tertiary: #1f1f1f;
+    --border: #2a2a2a;
+    --text-primary: #f0f0f0;
+    --text-secondary: #888888;
+    --accent: #00FFE0;
+  }
+
+  .light {
+    --bg: #FAFAF8;
+    --bg-secondary: #f0ede8;
+    --bg-tertiary: #e8e5e0;
+    --border: #d0cdc8;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --accent: #00a896;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* KaTeX error styling */
+.katex-error {
+  color: #ff4d4d;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85em;
+  background: rgba(255, 77, 77, 0.1);
+  border-left: 2px solid #ff4d4d;
+  padding: 4px 8px;
+  display: block;
+  white-space: pre-wrap;
+  border-radius: 2px;
+}
+
+/* Editor dot-grid background */
+.editor-grid-bg {
+  background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.light .editor-grid-bg {
+  background-image: radial-gradient(circle, #d8d5d0 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* CodeMirror overrides */
+.cm-editor {
+  height: 100%;
+  font-family: "JetBrains Mono", "IBM Plex Mono", monospace !important;
+  font-size: 14px;
+  background: transparent !important;
+}
+
+.cm-editor.cm-focused {
+  outline: none !important;
+}
+
+.cm-scroller {
+  font-family: "JetBrains Mono", "IBM Plex Mono", monospace !important;
+  overflow: auto;
+}
+
+.cm-gutters {
+  background: transparent !important;
+  border-right: 1px solid #2a2a2a !important;
+  color: #444 !important;
+}
+
+.light .cm-gutters {
+  border-right-color: #d0cdc8 !important;
+  color: #aaa !important;
+}
+
+.cm-activeLineGutter {
+  background: transparent !important;
+  color: #00FFE0 !important;
+}
+
+.light .cm-activeLineGutter {
+  color: #00a896 !important;
+}
+
+.cm-activeLine {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.light .cm-activeLine {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+.cm-selectionBackground {
+  background: rgba(0, 255, 224, 0.15) !important;
+}
+
+.cm-cursor {
+  border-left-color: #00FFE0 !important;
+  border-left-width: 2px !important;
+}
+
+.light .cm-cursor {
+  border-left-color: #00a896 !important;
+}
+
+/* Preview pane */
+.preview-content {
+  font-family: "Computer Modern", "Latin Modern", serif;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.preview-content .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 0;
+}
+
+/* Resize handle glow */
+.resize-handle:hover::after,
+.resize-handle.dragging::after {
+  content: "";
+  position: absolute;
+  inset: 0 -2px;
+  background: #00FFE0;
+  opacity: 0.2;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.light .resize-handle:hover::after,
+.light .resize-handle.dragging::after {
+  background: #00a896;
+}
