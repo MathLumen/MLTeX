@@ -17,16 +17,82 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mltex.mathlumen.com";
+
+const TITLE = "MLTeX — Fast LaTeX in your browser";
+const DESCRIPTION =
+  "Privacy-first, client-side LaTeX editor with live KaTeX preview. No servers, no sign-up — your math stays on your machine.";
+
 export const metadata: Metadata = {
-  title: "MLTeX — Fast LaTeX in your browser",
-  description:
-    "A privacy-first, client-side LaTeX editor with live KaTeX preview. No servers, no sign-up — your math stays on your machine.",
-  keywords: ["LaTeX", "math", "editor", "KaTeX", "MathLumen"],
-  authors: [{ name: "MathLumen" }],
+  metadataBase: new URL(SITE_URL),
+
+  title: {
+    default: TITLE,
+    template: "%s | MLTeX",
+  },
+  description: DESCRIPTION,
+
+  keywords: [
+    "LaTeX editor",
+    "online LaTeX",
+    "KaTeX",
+    "math editor",
+    "browser LaTeX",
+    "client-side LaTeX",
+    "MathLumen",
+    "MLTeX",
+    "live LaTeX preview",
+    "privacy LaTeX",
+  ],
+
+  authors: [{ name: "MathLumen", url: "https://mathlumen.com" }],
+  creator: "MathLumen",
+  publisher: "MathLumen",
+
+  // Canonical
+  alternates: {
+    canonical: "/",
+  },
+
+  // Robots
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  // OpenGraph
   openGraph: {
-    title: "MLTeX — Fast LaTeX in your browser",
-    description: "Privacy-first client-side LaTeX editor with live preview",
     type: "website",
+    url: SITE_URL,
+    siteName: "MLTeX by MathLumen",
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: "en_US",
+  },
+
+  // Twitter / X
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    site: "@mathlumen",
+    creator: "@mathlumen",
+  },
+
+  // App metadata
+  applicationName: "MLTeX",
+  category: "productivity",
+
+  // Verification placeholders — fill in once claimed
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
   },
 };
 
